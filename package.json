@@ -1,0 +1,27 @@
+{
+  "name": "seatlock",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Event Booking System — Concurrency-safe seat reservation with PostgreSQL transactions, row-level locking, and idempotent payments",
+  "workspaces": [
+    "packages/backend",
+    "packages/frontend"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspaces --if-present",
+    "dev:backend": "npm run dev -w packages/backend",
+    "dev:frontend": "npm run dev -w packages/frontend",
+    "build": "npm run build --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "npm run test -w packages/backend",
+    "test:concurrency": "npm run test:concurrency -w packages/backend",
+    "test:load": "npm run test:load -w packages/backend",
+    "db:migrate": "npm run db:migrate -w packages/backend",
+    "db:seed": "npm run db:seed -w packages/backend",
+    "db:reset": "npm run db:reset -w packages/backend",
+    "docker:up": "docker compose up -d",
+    "docker:down": "docker compose down",
+    "setup": "npm run docker:up && timeout /t 5 && npm install && npm run db:migrate && npm run db:seed"
+  }
+}
