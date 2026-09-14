@@ -108,6 +108,11 @@ async function seed() {
 
     // ─── Pre-book some seats to make the demo interesting ─────────────────
     // Book a few seats for Alice (user1) on Event 1
+    const { rows: userRows } = await pool.query(
+      `SELECT id FROM users WHERE email = 'alice@example.com' LIMIT 1`
+    );
+    const aliceId = userRows[0]?.id || user1Id;
+
     const { rows: aliceSeats } = await pool.query(
       `SELECT id, event_id, price_minor FROM seats WHERE event_id = $1 ORDER BY random() LIMIT 3`,
       [event1Id]
@@ -120,7 +125,7 @@ async function seed() {
 
       await pool.query(`
         INSERT INTO bookings (id, event_id, seat_id, user_id, status) VALUES ($1, $2, $3, $4, 'CONFIRMED')
-      `, [bookingId, seat.event_id, seat.id, user1Id]);
+      `, [bookingId, seat.event_id, seat.id, aliceId]);
 
       await pool.query(`
         UPDATE seats SET status = 'BOOKED' WHERE id = $1

@@ -15,7 +15,7 @@ export class AuthService {
     private userRepo: UserRepository,
     private jwtSecret: string,
     private jwtExpiresIn: string,
-    googleClientId?: string
+    private googleClientId?: string
   ) {
     if (googleClientId) {
       this.googleClient = new OAuth2Client(googleClientId);
@@ -79,7 +79,12 @@ export class AuthService {
         if (!userInfoRes.ok) {
           throw new Error('Failed to verify Google access token with userinfo API');
         }
-        const profile = await userInfoRes.json();
+        const profile = (await userInfoRes.json()) as {
+          email?: string;
+          email_verified?: boolean;
+          name?: string;
+          given_name?: string;
+        };
         if (!profile.email) {
           throw new Error('Google profile missing email');
         }
