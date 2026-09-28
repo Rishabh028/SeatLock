@@ -126,12 +126,14 @@ export async function buildApp() {
       });
     }
 
-    // Unknown errors — don't leak details
+    // Unknown errors
     logger.error({ err: error, requestId: request.id }, 'unhandled_error');
+    console.error('🔥 UNHANDLED ERROR IN BACKEND:', error);
     return reply.status(500).send({
       error: {
         code: 'INTERNAL_ERROR',
-        message: 'An unexpected error occurred.',
+        message: error?.message || 'An unexpected error occurred.',
+        detail: error?.detail || undefined,
         requestId: request.id,
       },
     });

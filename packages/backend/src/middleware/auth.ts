@@ -19,6 +19,13 @@ export function authMiddleware(authService: AuthService) {
 
     const token = authHeader.slice(7);
     const { userId, role } = authService.verifyToken(token);
+
+    // Verify user still exists in current database
+    const user = await authService.getUserById(userId);
+    if (!user) {
+      throw new UnauthorizedError('User session invalid or database reseeded. Please log in again.');
+    }
+
     request.userId = userId;
     request.userRole = role;
   };

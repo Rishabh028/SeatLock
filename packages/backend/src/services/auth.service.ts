@@ -169,6 +169,10 @@ export class AuthService {
     }
   }
 
+  async getUserById(userId: string) {
+    return this.userRepo.findById(userId);
+  }
+
   private generateToken(userId: string, role: UserRole): string {
     return jwt.sign({ userId, role }, this.jwtSecret, { expiresIn: this.jwtExpiresIn as any });
   }
