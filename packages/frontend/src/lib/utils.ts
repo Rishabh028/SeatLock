@@ -27,7 +27,16 @@ export function cn(...classes: (string | undefined | null | false)[]): string {
 }
 
 export function generateIdempotencyKey(): string {
-  return `${Date.now()}-${Math.random().toString(36).slice(2, 11)}`;
+  if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
+    return `ik_${crypto.randomUUID()}`;
+  }
+  if (typeof crypto !== 'undefined' && typeof crypto.getRandomValues === 'function') {
+    const bytes = new Uint8Array(16);
+    crypto.getRandomValues(bytes);
+    const hex = Array.from(bytes, b => b.toString(16).padStart(2, '0')).join('');
+    return `ik_${hex}`;
+  }
+  return `ik_${Date.now()}`;
 }
 
 export function getTimeRemaining(expiresAt: string): { minutes: number; seconds: number; expired: boolean } {

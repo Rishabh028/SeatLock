@@ -1,3 +1,4 @@
+import crypto from 'crypto';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { OAuth2Client } from 'google-auth-library';
@@ -139,7 +140,8 @@ export class AuthService {
 
     let user = await this.userRepo.findByEmail(email);
     if (!user) {
-      const randomPasswordHash = await bcrypt.hash(Math.random().toString(36), 10);
+      const randomPassword = crypto.randomBytes(32).toString('hex');
+      const randomPasswordHash = await bcrypt.hash(randomPassword, 10);
       user = await this.userRepo.create({
         email,
         name,

@@ -26,7 +26,7 @@ export async function createTestEvent(name?: string) {
 export async function createTestSeat(eventId: string, label?: string) {
   const pool = getPool();
   const seatId = uuid();
-  const seatLabel = label || `S${Math.floor(Math.random() * 10000)}`;
+  const seatLabel = label || `S${uuid().slice(0, 6)}`;
 
   await pool.query(
     `INSERT INTO seats (id, event_id, label, section, "row", number, tier, price_minor)

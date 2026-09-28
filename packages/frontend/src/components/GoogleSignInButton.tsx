@@ -135,7 +135,10 @@ export function GoogleSignInButton({
     }
 
     // Instant dev/demo verified fallback
-    const simulatedGoogleId = `google_${Math.random().toString(36).slice(2, 8)}`;
+    const randomId = typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function'
+      ? crypto.randomUUID().slice(0, 8)
+      : 'demo';
+    const simulatedGoogleId = `google_${randomId}`;
     sendCredentialToBackend(`demo_${simulatedGoogleId}`);
   };
 
