@@ -266,10 +266,10 @@ export default function HomePage() {
               />
             </svg>
             <span
-              className="font-semibold tracking-normal leading-none"
+              className="font-bold tracking-normal leading-none"
               style={{
-                fontSize: 'calc(17.5 * var(--u))',
-                fontVariationSettings: "'opsz' 22",
+                fontSize: 'calc(20 * var(--u))',
+                fontVariationSettings: "'opsz' 24",
               }}
             >
               SeatLock
@@ -284,7 +284,7 @@ export default function HomePage() {
               left: 'calc(353.8 * var(--u))',
               top: '50%',
               transform: 'translateY(-50%)',
-              gap: 'calc(25.2 * var(--u))',
+              gap: 'calc(28 * var(--u))',
             }}
           >
             {[
@@ -296,11 +296,11 @@ export default function HomePage() {
                 href={link.href}
                 className="whitespace-nowrap transition-colors duration-200 hover:text-white"
                 style={{
-                  fontSize: 'calc(11.9 * var(--u))',
-                  fontWeight: 450,
-                  letterSpacing: 'calc(-0.30 * var(--u))',
+                  fontSize: 'calc(14.5 * var(--u))',
+                  fontWeight: 500,
+                  letterSpacing: 'calc(-0.25 * var(--u))',
                   color: 'var(--ink-nav)',
-                  fontVariationSettings: "'opsz' 15",
+                  fontVariationSettings: "'opsz' 16",
                   opacity: isIntro ? 0 : 1,
                   animation: isPlay
                     ? `i-rise .55s var(--e-nav) ${link.delay} both`
@@ -316,18 +316,18 @@ export default function HomePage() {
           <div
             className="actions absolute right-0 top-0 flex items-center"
             style={{
-              gap: 'calc(7.8 * var(--u))',
+              gap: 'calc(9 * var(--u))',
             }}
           >
             {user ? (
-              <div className="flex items-center gap-[calc(6*var(--u))]">
+              <div className="flex items-center gap-[calc(8*var(--u))]">
                 <Link
                   href="/admin"
                   className="hidden md:inline-flex items-center justify-center rounded-[var(--r-btn)] border border-[rgba(255,255,255,.2)] hover:border-white text-white font-medium transition-all"
                   style={{
-                    height: 'calc(36.2 * var(--u))',
-                    padding: '0 calc(12 * var(--u))',
-                    fontSize: 'calc(11.9 * var(--u))',
+                    height: 'calc(38 * var(--u))',
+                    padding: '0 calc(14 * var(--u))',
+                    fontSize: 'calc(13.5 * var(--u))',
                     letterSpacing: 'calc(-0.35 * var(--u))',
                     opacity: isIntro ? 0 : 1,
                     animation: isPlay
@@ -341,9 +341,9 @@ export default function HomePage() {
                   onClick={logout}
                   className="hidden md:inline-flex items-center justify-center rounded-[var(--r-btn)] bg-white text-black font-semibold hover:bg-[#e9e9ea] transition-all"
                   style={{
-                    height: 'calc(36.2 * var(--u))',
-                    padding: '0 calc(14 * var(--u))',
-                    fontSize: 'calc(12.15 * var(--u))',
+                    height: 'calc(38 * var(--u))',
+                    padding: '0 calc(16 * var(--u))',
+                    fontSize: 'calc(13.5 * var(--u))',
                     opacity: isIntro ? 0 : 1,
                     animation: isPlay
                       ? 'i-rise .55s var(--e-nav) .215s both'
@@ -359,10 +359,10 @@ export default function HomePage() {
                   href="/login"
                   className="hidden md:inline-flex items-center justify-center rounded-[var(--r-btn)] border border-[rgba(255,255,255,.98)] text-white hover:bg-[rgba(255,255,255,.10)] transition-all font-medium leading-none"
                   style={{
-                    width: 'calc(85.5 * var(--u))',
-                    height: 'calc(36.2 * var(--u))',
-                    fontSize: 'calc(11.9 * var(--u))',
-                    letterSpacing: 'calc(-0.38 * var(--u))',
+                    width: 'calc(96 * var(--u))',
+                    height: 'calc(38 * var(--u))',
+                    fontSize: 'calc(13.5 * var(--u))',
+                    letterSpacing: 'calc(-0.35 * var(--u))',
                     opacity: isIntro ? 0 : 1,
                     animation: isPlay
                       ? 'i-rise .55s var(--e-nav) .160s both'
@@ -375,9 +375,9 @@ export default function HomePage() {
                   href="/events"
                   className="hidden md:inline-flex items-center justify-center rounded-[var(--r-btn)] bg-white text-black hover:bg-[#e9e9ea] transition-all font-semibold leading-none shadow-lg shadow-white/10"
                   style={{
-                    width: 'calc(98.2 * var(--u))',
-                    height: 'calc(36.2 * var(--u))',
-                    fontSize: 'calc(12.15 * var(--u))',
+                    width: 'calc(112 * var(--u))',
+                    height: 'calc(38 * var(--u))',
+                    fontSize: 'calc(13.5 * var(--u))',
                     letterSpacing: 'calc(-0.35 * var(--u))',
                     opacity: isIntro ? 0 : 1,
                     animation: isPlay
@@ -503,12 +503,12 @@ export default function HomePage() {
                 ACID
               </span>
               <span
-                className="pill-label font-medium whitespace-nowrap leading-none text-[rgba(255,255,255,.88)]"
+                className="pill-label font-medium whitespace-nowrap leading-none text-[rgba(255,255,255,.92)]"
                 style={{
                   marginLeft: 'calc(4 * var(--u))',
-                  fontSize: 'calc(12.4 * var(--u))',
+                  fontSize: 'calc(14 * var(--u))',
                   letterSpacing: 'calc(-0.48 * var(--u))',
-                  fontVariationSettings: "'opsz' 15",
+                  fontVariationSettings: "'opsz' 16",
                 }}
               >
                 Zero Double Bookings
@@ -532,12 +532,12 @@ export default function HomePage() {
 
             {/* Mask-Revealed Headline */}
             <h1
-              className="absolute left-[calc(0.6*var(--u))] right-[calc(-0.6*var(--u))] font-semibold text-white tracking-tight leading-[calc(56*var(--u))]"
+              className="absolute left-[calc(0.6*var(--u))] right-[calc(-0.6*var(--u))] font-bold text-white tracking-tight leading-[calc(66*var(--u))]"
               style={{
-                top: 'calc(168.5 * var(--u))',
-                fontSize: 'calc(55 * var(--u))',
-                letterSpacing: 'calc(-0.76 * var(--u))',
-                fontVariationSettings: "'opsz' 32",
+                top: 'calc(162 * var(--u))',
+                fontSize: 'calc(65 * var(--u))',
+                letterSpacing: 'calc(-1.2 * var(--u))',
+                fontVariationSettings: "'opsz' 36",
                 margin: 0,
               }}
             >
@@ -575,15 +575,15 @@ export default function HomePage() {
 
             {/* Sub-headline */}
             <p
-              className="absolute font-normal text-[rgba(255,255,255,.65)] leading-[calc(24*var(--u))]"
+              className="absolute font-normal text-[rgba(255,255,255,.75)] leading-[calc(28*var(--u))]"
               style={{
                 left: '50%',
                 transform: 'translateX(calc(-50% + 0.25 * var(--u)))',
-                top: 'calc(292.6 * var(--u))',
-                width: 'calc(730 * var(--u))',
-                fontSize: 'calc(15.7 * var(--u))',
-                letterSpacing: 'calc(-0.05 * var(--u))',
-                fontVariationSettings: "'opsz' 20",
+                top: 'calc(306 * var(--u))',
+                width: 'calc(780 * var(--u))',
+                fontSize: 'calc(18.5 * var(--u))',
+                letterSpacing: 'calc(-0.08 * var(--u))',
+                fontVariationSettings: "'opsz' 22",
                 margin: 0,
                 opacity: isIntro ? 0 : 1,
                 animation: isPlay
@@ -600,7 +600,7 @@ export default function HomePage() {
             <div
               className="cta absolute left-1/2 flex items-center justify-center"
               style={{
-                top: 'calc(342.8 * var(--u))',
+                top: 'calc(376 * var(--u))',
                 transform: 'translateX(-50%)',
                 gap: 'calc(9.9 * var(--u))',
               }}
@@ -637,20 +637,20 @@ export default function HomePage() {
               <Sparkles className="w-3.5 h-3.5 text-indigo-400" />
               <span>Real-Time Inventory</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center gap-2.5">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight flex items-center gap-2.5">
               <span>Featured Live Events</span>
             </h2>
-            <p className="text-xs sm:text-sm text-zinc-400 mt-1">
+            <p className="text-sm sm:text-base text-zinc-300 mt-2">
               Select an event to enter the interactive 3D arena view and test atomic seat reservations.
             </p>
           </div>
 
           <Link
             href="/events"
-            className="flex items-center gap-1.5 text-xs font-semibold text-white bg-white/10 hover:bg-white/20 border border-white/15 px-4 py-2 rounded-xl transition-all"
+            className="flex items-center gap-1.5 text-sm font-semibold text-white bg-white/10 hover:bg-white/20 border border-white/15 px-5 py-2.5 rounded-xl transition-all"
           >
             <span>View All</span>
-            <ArrowRight className="w-3.5 h-3.5" />
+            <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
 
@@ -671,29 +671,29 @@ export default function HomePage() {
                         year: 'numeric',
                       })}
                     </span>
-                    <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+                    <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
                       Sales Open
                     </span>
                   </div>
 
-                  <h3 className="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">
+                  <h3 className="text-xl font-bold text-white group-hover:text-indigo-300 transition-colors">
                     {event.name}
                   </h3>
 
-                  <p className="text-xs text-zinc-400 mt-2 line-clamp-3 leading-relaxed">
+                  <p className="text-sm text-zinc-300 mt-2.5 line-clamp-3 leading-relaxed">
                     {event.description}
                   </p>
                 </div>
 
                 <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs">
                   <div className="flex items-center gap-1.5 text-zinc-400">
-                    <MapPin className="w-3.5 h-3.5 text-zinc-500" />
+                    <MapPin className="w-4 h-4 text-zinc-400" />
                     <span className="truncate max-w-[140px]">{event.venue}</span>
                   </div>
 
-                  <span className="flex items-center gap-1 font-bold text-indigo-400 group-hover:translate-x-1 transition-transform">
+                  <span className="flex items-center gap-1 font-bold text-sm text-indigo-400 group-hover:translate-x-1 transition-transform">
                     <span>Reserve Seat</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    <ArrowRight className="w-4 h-4" />
                   </span>
                 </div>
               </Link>
@@ -708,15 +708,15 @@ export default function HomePage() {
           <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-600/10 rounded-full filter blur-3xl pointer-events-none" />
 
           <div className="max-w-3xl">
-            <span className="px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-white/10 text-white border border-white/20">
+            <span className="px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-white/10 text-white border border-white/20">
               Three-Layer Defense Strategy
             </span>
 
-            <h2 className="text-2xl sm:text-4xl font-black text-white mt-4 tracking-tight">
+            <h2 className="text-3xl sm:text-5xl font-black text-white mt-4 tracking-tight">
               Eliminating Double Bookings At The Engine Layer
             </h2>
 
-            <p className="text-sm sm:text-base text-zinc-400 mt-3 leading-relaxed">
+            <p className="text-base sm:text-lg text-zinc-300 mt-3.5 leading-relaxed">
               Standard CRUD architectures check availability with a `SELECT`, then later attempt an `INSERT`—leaving a massive
               window for double bookings. SeatLock eliminates this entirely through synchronized primitives:
             </p>

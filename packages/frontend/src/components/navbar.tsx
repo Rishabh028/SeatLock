@@ -67,21 +67,21 @@ export function Navbar() {
             </Link>
 
             {/* Navigation Links */}
-            <div className="hidden md:flex items-center gap-1.5">
+            <div className="hidden md:flex items-center gap-2">
               <Link
                 href="/events"
-                className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all ${isActive('/events')}`}
+                className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all ${isActive('/events')}`}
               >
-                <Calendar className="w-3.5 h-3.5" />
+                <Calendar className="w-4 h-4" />
                 <span>Events</span>
               </Link>
 
               {user && (
                 <Link
                   href="/bookings"
-                  className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all ${isActive('/bookings')}`}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all ${isActive('/bookings')}`}
                 >
-                  <Ticket className="w-3.5 h-3.5" />
+                  <Ticket className="w-4 h-4" />
                   <span>My Bookings</span>
                 </Link>
               )}
@@ -89,9 +89,9 @@ export function Navbar() {
               {isAdmin && (
                 <Link
                   href="/admin"
-                  className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all ${isActive('/admin')}`}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all ${isActive('/admin')}`}
                 >
-                  <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
+                  <ShieldCheck className="w-4 h-4 text-amber-400" />
                   <span>Admin Portal</span>
                 </Link>
               )}
@@ -101,15 +101,15 @@ export function Navbar() {
           {/* Right Header Area: Live Health & Auth */}
           <div className="flex items-center gap-4">
             {/* Live Database Status Indicator */}
-            <div className="hidden sm:flex items-center gap-2 px-2.5 py-1 rounded-full text-[11px] font-mono bg-zinc-900/90 border border-white/10 text-zinc-300">
-              <span className="relative flex h-2 w-2">
+            <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-mono bg-zinc-900/90 border border-white/10 text-zinc-300">
+              <span className="relative flex h-2.5 w-2.5">
                 <span
                   className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${
                     dbHealthy ? 'bg-emerald-400' : 'bg-amber-400'
                   }`}
                 />
                 <span
-                  className={`relative inline-flex rounded-full h-2 w-2 ${
+                  className={`relative inline-flex rounded-full h-2.5 w-2.5 ${
                     dbHealthy ? 'bg-emerald-500' : 'bg-amber-500'
                   }`}
                 />
@@ -119,13 +119,13 @@ export function Navbar() {
 
             {user ? (
               <div className="flex items-center gap-3">
-                <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs font-medium text-zinc-200">
-                  <div className="w-5 h-5 rounded-full bg-indigo-600/40 text-indigo-300 flex items-center justify-center font-bold text-[10px]">
+                <div className="flex items-center gap-2.5 px-3.5 py-1.5 rounded-xl bg-white/5 border border-white/10 text-sm font-medium text-zinc-200">
+                  <div className="w-6 h-6 rounded-full bg-indigo-600/40 text-indigo-300 flex items-center justify-center font-bold text-xs">
                     {user.name?.charAt(0).toUpperCase() || 'U'}
                   </div>
                   <span className="hidden sm:inline font-semibold">{user.name}</span>
                   {isAdmin && (
-                    <span className="text-[10px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-indigo-500/20 text-indigo-400 border border-indigo-500/30">
+                    <span className="text-[11px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-indigo-500/20 text-indigo-400 border border-indigo-500/30">
                       Admin
                     </span>
                   )}
@@ -133,26 +133,26 @@ export function Navbar() {
 
                 <button
                   onClick={logout}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold text-zinc-400 hover:text-red-400 hover:bg-red-500/10 border border-transparent hover:border-red-500/20 transition-all"
+                  className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-sm font-semibold text-zinc-400 hover:text-red-400 hover:bg-red-500/10 border border-transparent hover:border-red-500/20 transition-all"
                   title="Sign out"
                 >
-                  <LogOut className="w-3.5 h-3.5" />
+                  <LogOut className="w-4 h-4" />
                   <span className="hidden sm:inline">Logout</span>
                 </button>
               </div>
             ) : (
-              <div className="flex items-center gap-2.5">
+              <div className="flex items-center gap-3">
                 <Link
                   href="/login"
-                  className="px-3.5 py-1.5 rounded-xl text-xs font-semibold text-zinc-300 hover:text-white hover:bg-white/5 transition-all"
+                  className="px-4 py-2 rounded-xl text-sm font-semibold text-zinc-300 hover:text-white hover:bg-white/5 transition-all"
                 >
                   Login
                 </Link>
                 <Link
                   href="/register"
-                  className="flex items-center gap-1.5 px-4 py-1.5 rounded-xl text-xs font-bold text-white bg-indigo-600 hover:bg-indigo-500 shadow-lg shadow-indigo-600/30 active:scale-95 transition-all"
+                  className="flex items-center gap-1.5 px-4.5 py-2 rounded-xl text-sm font-bold text-white bg-indigo-600 hover:bg-indigo-500 shadow-lg shadow-indigo-600/30 active:scale-95 transition-all"
                 >
-                  <Sparkles className="w-3 h-3 text-indigo-200" />
+                  <Sparkles className="w-3.5 h-3.5 text-indigo-200" />
                   <span>Get Tickets</span>
                 </Link>
               </div>
