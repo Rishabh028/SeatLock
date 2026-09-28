@@ -48,7 +48,10 @@ async function seed() {
         ($2, 'Summer Music Festival', 'An unforgettable outdoor music experience featuring 20+ artists across 3 stages. Food trucks, art installations, and late-night DJ sets included.', 'Riverside Amphitheater', '/images/musicfest.jpg', $6, $9),
         ($3, 'Comedy Night Live', 'Stand-up comedy showcase featuring 5 headline comedians and 3 rising stars. Dinner and drinks available. Ages 18+.', 'Downtown Comedy Club', '/images/comedy.jpg', $7, $9),
         ($4, 'Startup Pitch Night', 'Watch 10 hand-picked startups pitch to a panel of top VCs. Network with founders, investors, and fellow tech enthusiasts. Light refreshments provided.', 'Innovation Hub', '/images/startup.jpg', $8, $9)
-      ON CONFLICT DO NOTHING
+      ON CONFLICT (id) DO UPDATE SET
+        starts_at = EXCLUDED.starts_at,
+        sales_open_at = EXCLUDED.sales_open_at,
+        sales_close_at = NULL
     `, [event1Id, event2Id, event3Id, event4Id, inOneWeek, inTwoWeeks, inThreeWeeks, inFourWeeks, yesterday]);
 
     console.log('  ✅ 4 events created');
