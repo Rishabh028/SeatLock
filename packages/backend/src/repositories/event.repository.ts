@@ -68,15 +68,19 @@ export class EventRepository {
    * Used during hold/booking validation.
    */
   async areSalesOpen(eventId: string, client?: DbClient): Promise<boolean> {
-    const db = client || (await import('../db/pool.js')).getPool();
-    const { rows } = await db.query(
-      `SELECT id FROM events
-       WHERE id = $1
-         AND sales_open_at <= NOW()
-         AND (sales_close_at IS NULL OR sales_close_at > NOW())
-         AND starts_at > NOW()`,
-      [eventId]
-    );
-    return rows.length > 0;
+    const event = await this.findById(eventId, client);
+    if (!event) return false;
+
+    const now = new Date().getTime();
+    const startsAt = new Date(event.starts_at).getTime();
+    const salesOpenAt = new Date(event.sales_open_at).getTime();
+    const salesCloseAt = event.sales_close_at ? new Date(event.sales_close_at).getTime() : null;
+
+    // Check sales are open
+    if (salesOpenAt > now) return false;
+    if (salesCloseAt && salesCloseAt <= now) return false;
+    if (startsAt <= now) return false;
+
+    return true;
   }
 }

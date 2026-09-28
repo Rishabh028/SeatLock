@@ -1,4 +1,5 @@
 import pg from 'pg';
+import { config } from '../config.js';
 import { logger } from '../lib/logger.js';
 
 const { Pool } = pg;
@@ -7,11 +8,13 @@ let pool: pg.Pool | null = null;
 
 export function getPool(): pg.Pool {
   if (!pool) {
+    const isCloud = config.DATABASE_URL.includes('neon.tech') || config.DATABASE_URL.includes('sslmode=require');
     pool = new Pool({
-      connectionString: process.env.DATABASE_URL,
+      connectionString: config.DATABASE_URL,
       max: 75,
       idleTimeoutMillis: 30000,
       connectionTimeoutMillis: 30000,
+      ssl: isCloud ? { rejectUnauthorized: false } : undefined,
     });
 
     pool.on('error', (err) => {
