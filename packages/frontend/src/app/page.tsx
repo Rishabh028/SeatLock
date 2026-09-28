@@ -290,8 +290,6 @@ export default function HomePage() {
             {[
               { name: 'Events', href: '/events', delay: '.070s' },
               { name: 'My Bookings', href: '/bookings', delay: '.115s' },
-              { name: 'Architecture', href: '#architecture', delay: '.160s' },
-              { name: 'Admin', href: '/admin', delay: '.205s' },
             ].map((link, idx) => (
               <Link
                 key={idx}
@@ -609,11 +607,12 @@ export default function HomePage() {
             >
               <Link
                 href="/events"
-                className="btn ghost inline-flex items-center justify-center rounded-[var(--r-btn)] text-white border border-[rgba(255,255,255,.98)] bg-transparent hover:bg-[rgba(255,255,255,.10)] transition-all font-medium leading-none"
+                onAnimationEnd={handleLastAnimationEnd}
+                className="btn solid inline-flex items-center justify-center rounded-[var(--r-btn)] bg-white text-black hover:bg-[#e9e9ea] transition-all font-semibold leading-none shadow-xl shadow-white/10"
                 style={{
-                  width: 'calc(130 * var(--u))',
-                  height: 'calc(36.4 * var(--u))',
-                  fontSize: 'calc(13.3 * var(--u))',
+                  width: 'calc(140 * var(--u))',
+                  height: 'calc(38 * var(--u))',
+                  fontSize: 'calc(13.5 * var(--u))',
                   letterSpacing: 'calc(-0.34 * var(--u))',
                   fontVariationSettings: "'opsz' 16",
                   opacity: isIntro ? 0 : 1,
@@ -624,26 +623,6 @@ export default function HomePage() {
                 }}
               >
                 Browse Events
-              </Link>
-
-              <Link
-                href="/events"
-                onAnimationEnd={handleLastAnimationEnd}
-                className="btn solid inline-flex items-center justify-center rounded-[var(--r-btn)] bg-white text-black hover:bg-[#e9e9ea] transition-all font-semibold leading-none shadow-xl shadow-white/10"
-                style={{
-                  width: 'calc(130 * var(--u))',
-                  height: 'calc(36.4 * var(--u))',
-                  fontSize: 'calc(13.3 * var(--u))',
-                  letterSpacing: 'calc(-0.34 * var(--u))',
-                  fontVariationSettings: "'opsz' 16",
-                  opacity: isIntro ? 0 : 1,
-                  animation: isPlay
-                    ? 'i-btn .62s var(--e-soft) 1.07s both'
-                    : 'none',
-                  willChange: isPlay ? 'transform, opacity' : 'auto',
-                }}
-              >
-                3D Arena View
               </Link>
             </div>
           </main>
