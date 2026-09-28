@@ -7,6 +7,17 @@ SeatLock is an industrial-grade, production-style distributed event ticketing an
 
 ---
 
+## 🚀 Live Demo & Production Deployments
+
+| Service | Component | Live Deployment URL |
+|---|---|---|
+| **Frontend** | Next.js 16 + Three.js | [https://seatlock-front.vercel.app](https://seatlock-front.vercel.app) |
+| **Backend API** | Fastify + BullMQ + Node.js | [https://seatlock-api-7t3k.onrender.com](https://seatlock-api-7t3k.onrender.com) |
+| **Database** | Serverless PostgreSQL 16 | [Neon Cloud](https://neon.tech) |
+| **Distributed Cache** | High-performance Redis 7 | Upstash Cloud |
+
+---
+
 ## Key Highlights & Features
 
 - 🛡️ **Pessimistic Row-Level Locking**: `SELECT ... FOR UPDATE` serializes concurrent transactions at the database storage engine.
